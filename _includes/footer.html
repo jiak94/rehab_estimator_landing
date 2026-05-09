@@ -1,61 +1,36 @@
-<footer>
-	{% if site.your_name %}
-	<p class="footerText">Made by {% if site.your_link %}<a href="{{ site.your_link }}">{% endif %}{{ site.your_name }}{% if site.your_link %}</a>{% endif %}{% if site.your_city %} in {{ site.your_city }}{% endif %}</p>
-	{% endif %}
-	<div class="footerIcons">
+<footer class="site-footer">
+  <div class="footer-brand">
+    <img class="brand-icon" src="{{ site.app_icon | relative_url }}" alt="" />
+    <div>
+      <strong>{{ site.app_name }}</strong>
+      <p>{{ site.app_description }}</p>
+    </div>
+  </div>
 
-		{% if site.facebook_username %}
-			<a href="https://facebook.com/{{ site.facebook_username }}">
-				<span class="fa-stack fa-1x">
-					<i class="socialIconBack fas fa-circle fa-stack-2x"></i>
-					<i class="socialIconTop fab fa-facebook fa-stack-1x"></i>
-				</span>
-			</a>
-		{% endif %}
-
-		{% if site.twitter_username %}
-			<a href="https://twitter.com/{{ site.twitter_username }}">
-				<span class="fa-stack fa-1x">
-					<i class="socialIconBack fas fa-circle fa-stack-2x"></i>
-					<i class="socialIconTop fab fa-twitter fa-stack-1x"></i>
-				</span>
-			</a>
-		{% endif %}
-
-		{% if site.instagram_username %}
-			<a href="https://instagram.com/{{ site.instagram_username }}">
-				<span class="fa-stack fa-1x">
-					<i class="socialIconBack fas fa-circle fa-stack-2x"></i>
-					<i class="socialIconTop fab fa-instagram fa-stack-1x"></i>
-				</span>
-			</a>
-		{% endif %}
-
-		{% if site.github_username %}
-			<a href="https://github.com/{{ site.github_username }}">
-				<span class="fa-stack fa-1x">
-					<i class="socialIconBack fas fa-circle fa-stack-2x"></i>
-					<i class="socialIconTop fab fa-github fa-stack-1x"></i>
-				</span>
-			</a>
-		{% endif %}
-
-		{% if site.email_address %}
-			<a href="mailto:{{ site.email_address }}">
-				<span class="fa-stack fa-1x">
-					<i class="socialIconBack fas fa-circle fa-stack-2x"></i>
-					<i class="socialIconTop fas fa-envelope fa-stack-1x"></i>
-				</span>
-			</a>
-		{% endif %}
-
-	</div>
-	<div class="footerLinks">
-		{% for page in site.pages %}
-			<a href="{{ page.url | relative_url }}" target="_self">{{ page.title }}</a>
-		{% endfor %}
-		{% if site.presskit_download_link %}
-			<a href="{{ site.presskit_download_link }}">Press Kit</a>
-		{% endif %}
-	</div>
+  <div class="footer-columns">
+    <div>
+      <h2>Product</h2>
+      <a href="{{ '/#product' | relative_url }}" target="_self">Features</a>
+      <a href="{{ '/#proof' | relative_url }}" target="_self">Screenshots</a>
+      <a href="{{ '/#sample-report' | relative_url }}" target="_self">Sample report</a>
+      <a href="{{ '/changelog/' | relative_url }}" target="_self">What's New</a>
+    </div>
+    <div>
+      <h2>Calculators</h2>
+      <a href="{{ '/rehab-cost-calculator/' | relative_url }}" target="_self">Rehab cost calculator</a>
+      <a href="{{ '/fix-and-flip-calculator/' | relative_url }}" target="_self">Fix and flip calculator</a>
+      <a href="{{ '/rental-cashflow-calculator/' | relative_url }}" target="_self">Rental cashflow calculator</a>
+      <a href="{{ '/kitchen-remodel-cost-estimator/' | relative_url }}" target="_self">Kitchen remodel cost estimator</a>
+      <a href="{{ '/bathroom-remodel-cost-estimator/' | relative_url }}" target="_self">Bathroom remodel cost estimator</a>
+    </div>
+    <div>
+      <h2>Legal</h2>
+      <a href="{{ '/privacypolicy/' | relative_url }}" target="_self">Privacy Policy</a>
+      <a href="{{ '/terms_of_use/' | relative_url }}" target="_self">Terms of Use</a>
+      <a href="{{ '/request_delete_data/' | relative_url }}" target="_self">Data Deletion Request</a>
+      {% if site.email_address %}
+      <a href="mailto:{{ site.email_address }}">{{ site.email_address }}</a>
+      {% endif %}
+    </div>
+  </div>
 </footer>
