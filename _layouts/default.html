@@ -4,64 +4,149 @@
 {% include head.html %}
 
 <body>
-    <div class="imageWrapper">
-            <div class="headerBackground">
-                <div class="container">
-                    {% include header.html %}
-                    <div class="iphonePreview">
+  {% include header.html %}
 
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 0 0" style="position: absolute;">
-                            <clipPath id="screenMask" clipPathUnits="objectBoundingBox" transform="scale(0.00257, 0.00119)">
-                                <path d="M6490.24,1234.36H6216.28c-2.57,0-10.55-.07-12.07-0.07a87.524,87.524,0,0,1-12-1.03,40.051,40.051,0,0,1-11.4-3.79,38.315,38.315,0,0,1-16.82-16.84,39.948,39.948,0,0,1-3.78-11.42,72.257,72.257,0,0,1-1.04-12.02c-0.06-1.83-.06-5.56-0.06-5.56V452.125h0s0.06-11.391.06-12.086a87.9,87.9,0,0,1,1.04-12.025,39.843,39.843,0,0,1,3.78-11.413,38.283,38.283,0,0,1,16.82-16.847,39.762,39.762,0,0,1,11.4-3.785,71.909,71.909,0,0,1,12-1.037c16.99-.567,36.32-0.061,34.51-0.061,5.02,0,6.5,3.439,6.63,6.962a35.611,35.611,0,0,0,1.2,8.156,21.326,21.326,0,0,0,19.18,15.592c2.28,0.192,6.78.355,6.78,0.355H6433.7s4.5-.059,6.79-0.251a21.348,21.348,0,0,0,19.18-15.591,35.582,35.582,0,0,0,1.19-8.154c0.13-3.523,1.61-6.962,6.64-6.962-1.81,0,17.52-.5,34.5.061a71.923,71.923,0,0,1,12.01,1.038,39.832,39.832,0,0,1,11.4,3.784,38.283,38.283,0,0,1,16.82,16.844,40.153,40.153,0,0,1,3.78,11.413,87.844,87.844,0,0,1,1.03,12.023c0,0.695.06,12.084,0.06,12.084h0V1183.64s0,3.72-.06,5.55a72.366,72.366,0,0,1-1.03,12.03,40.2,40.2,0,0,1-3.78,11.41,38.315,38.315,0,0,1-16.82,16.84,40.155,40.155,0,0,1-11.4,3.79,87.669,87.669,0,0,1-12.01,1.03c-1.52,0-9.5.07-12.07,0.07" transform="translate(-6159.12 -394.656)"/>
-                            </clipPath>
-                        </svg>
-
-                        <div class="videoContainer hidden">
-                            <video class="screenvideo" autoplay="autoplay" controls="controls">
-                            </video>
-                        </div>  
-                        
-                        <img class="iphoneScreen hidden" src="" alt="">
-
-                        {% include screencontent.html %}
-
-                    </div>
-                    <div class="appInfo">
-                        <div class="appIconShadow">
-                            <svg width="0" height="0">
-                                <defs>
-                                    <clipPath id="shape120">
-                                        <path id="shape" class="cls-1" d="M6821,495.533v-4.281c0-1.2-.04-2.4-0.04-3.642a57.7,57.7,0,0,0-.68-7.882,26.144,26.144,0,0,0-2.48-7.483,25.115,25.115,0,0,0-11.04-11.044,26.118,26.118,0,0,0-7.49-2.481,47.28,47.28,0,0,0-7.88-.68c-1.2-.04-2.4-0.04-3.64-0.04h-53.5c-1.2,0-2.4.04-3.64,0.04a57.813,57.813,0,0,0-7.88.68,26.323,26.323,0,0,0-7.49,2.481,25.115,25.115,0,0,0-11.04,11.044,26.144,26.144,0,0,0-2.48,7.483,47.313,47.313,0,0,0-.68,7.882c-0.04,1.2-.04,2.4-0.04,3.642v53.5c0,1.2.04,2.4,0.04,3.641a57.7,57.7,0,0,0,.68,7.883,26.137,26.137,0,0,0,2.48,7.482,25.115,25.115,0,0,0,11.04,11.044,26.261,26.261,0,0,0,7.49,2.481,47.28,47.28,0,0,0,7.88.68c1.2,0.04,2.4.04,3.64,0.04h53.5c1.2,0,2.4-.04,3.64-0.04a57.654,57.654,0,0,0,7.88-.68,26.057,26.057,0,0,0,7.49-2.481,25.115,25.115,0,0,0,11.04-11.044,26.137,26.137,0,0,0,2.48-7.482,47.316,47.316,0,0,0,.68-7.883c0.04-1.2.04-2.4,0.04-3.641V495.533h0Z" transform="translate(-6701 -458)" filter="url(#f1)"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                            <img class="appIconLarge" src="{{ site.app_icon | relative_url }}">
-                        </div>
-                        <div class="appNamePriceContainer">
-                            <h1 class="appName">
-                                {{ site.app_name }}
-                            </h1>
-                            <h2 class="appPrice">
-                                {{ site.app_price }}
-                            </h2>
-                        </div>
-                        <div class="appDescriptionContainer">
-                            <p class ="appDescription">
-                                {{ site.app_description }}
-                            </p>
-                        </div>
-                        <div class="downloadButtonsContainer">
-                            {% if site.playstore_link %}
-                                <a class="playStoreLink" href="{{site.playstore_link}}"><img class="playStore" src="assets/playstore.png"></a>
-                            {% endif %}
-                            <a class="appStoreLink" href="{{site.appstore_link}}"><img class="appStore" src="assets/appstore.png"></a>
-                        </div>
-                    </div>
-                    {% include features.html %}
-                    {% include footer.html %}
-                    {% include appstoreimages.html %}
-                </div>
-            </div>
+  <main>
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <img src="{{ '/assets/product/report-builder-ipad.png' | relative_url }}" alt="" />
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow">Rehab estimate app for investors, contractors, and homeowners</p>
+        <h1>Rehab Estimator</h1>
+        <p class="hero-copy">
+          Create a rehab estimate, attach photos, calculate deal numbers, and share a PDF report from one jobsite workflow.
+        </p>
+        {% include download_cta.html %}
+        <div class="hero-proof" aria-label="Product highlights">
+          <span>Estimate ranges</span>
+          <span>Photo notes</span>
+          <span>PDF export</span>
+          <span>iOS and Android</span>
         </div>
+      </div>
+    </section>
+
+    <section id="product" class="section product-section">
+      <div class="section-heading">
+        <p class="eyebrow">Built for field decisions</p>
+        <h2>One app from walkthrough notes to shareable rehab numbers.</h2>
+      </div>
+      <div class="feature-grid">
+        {% for feature in site.features %}
+          {% if feature.title %}
+          <article class="feature-card">
+            <span class="feature-index">0{{ forloop.index }}</span>
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.description }}</p>
+          </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <section id="proof" class="section proof-section">
+      <div class="proof-copy">
+        <p class="eyebrow">Real app proof</p>
+        <h2>Use the same data in reports, calculators, and the job library.</h2>
+        <p>
+          Rehab Estimator keeps scope items, quantity edits, photo documentation, and deal math in the same product surface, so the estimate is easier to review before sharing.
+        </p>
+      </div>
+      <div class="screenshot-grid" aria-label="App screenshots">
+        <figure class="screenshot tall">
+          <img src="{{ '/assets/product/report-overview-mobile.png' | relative_url }}" alt="Rehab Estimator mobile report overview with tasks and estimate total" />
+        </figure>
+        <figure class="screenshot">
+          <img src="{{ '/assets/product/calculator-ipad.png' | relative_url }}" alt="Rehab Estimator iPad calculator screen" />
+        </figure>
+      </div>
+    </section>
+
+    <section id="sample-report" class="section report-section">
+      <div class="section-heading">
+        <p class="eyebrow">Report preview</p>
+        <h2>Turn a working estimate into a client-ready PDF.</h2>
+      </div>
+      <div class="report-preview">
+        <div class="report-sheet">
+          <div class="report-head">
+            <span>Sample Rehab Estimate</span>
+            <strong>$28,100 to $49,200</strong>
+          </div>
+          <div class="report-property">
+            <p>123 Demo Street</p>
+            <p>1,850 sqft property</p>
+          </div>
+          <div class="report-table" role="table" aria-label="Sample report cost table">
+            <div role="row">
+              <span role="cell">Roof replacement</span>
+              <strong role="cell">$9,200 to $14,600</strong>
+            </div>
+            <div role="row">
+              <span role="cell">Cabinets and countertops</span>
+              <strong role="cell">$11,400 to $20,700</strong>
+            </div>
+            <div role="row">
+              <span role="cell">Interior painting</span>
+              <strong role="cell">$2,800 to $5,200</strong>
+            </div>
+          </div>
+          <div class="photo-strip" aria-label="Attached photo placeholders">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="report-points">
+          <h3>What the PDF carries forward</h3>
+          <ul>
+            <li>Scope categories and task-level cost ranges.</li>
+            <li>Property details from the report record.</li>
+            <li>Photo notes for contractor and partner review.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section seo-section">
+      <div class="section-heading">
+        <p class="eyebrow">Estimate pages</p>
+        <h2>Calculator guides for common rehab searches.</h2>
+      </div>
+      <div class="seo-grid">
+        <a href="{{ '/rehab-cost-calculator/' | relative_url }}" target="_self">
+          <span>Rehab cost calculator</span>
+          <p>Plan a room-by-room or category-by-category renovation budget.</p>
+        </a>
+        <a href="{{ '/fix-and-flip-calculator/' | relative_url }}" target="_self">
+          <span>Fix and flip calculator</span>
+          <p>Compare purchase price, rehab cost, holding cost, resale value, and profit.</p>
+        </a>
+        <a href="{{ '/rental-cashflow-calculator/' | relative_url }}" target="_self">
+          <span>Rental cashflow calculator</span>
+          <p>Estimate monthly rent, financing, vacancy, expenses, and net cashflow.</p>
+        </a>
+        <a href="{{ '/kitchen-remodel-cost-estimator/' | relative_url }}" target="_self">
+          <span>Kitchen remodel cost estimator</span>
+          <p>Estimate cabinets, countertops, fixtures, flooring, and photo-backed scope notes.</p>
+        </a>
+        <a href="{{ '/bathroom-remodel-cost-estimator/' | relative_url }}" target="_self">
+          <span>Bathroom remodel cost estimator</span>
+          <p>Plan demo, tile, plumbing, fixtures, electrical, and finish work ranges.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div>
+        <p class="eyebrow">Start from the jobsite</p>
+        <h2>Build the estimate where the questions happen.</h2>
+      </div>
+      {% include download_cta.html %}
+    </section>
+  </main>
+
+  {% include footer.html %}
 </body>
 </html>

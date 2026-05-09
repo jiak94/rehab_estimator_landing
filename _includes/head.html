@@ -1,38 +1,106 @@
 <head>
+  {% assign resolved_title = page.seo_title | default: page.title | default: site.page_title | default: site.app_name %}
+  {% assign resolved_description = page.meta_description | default: site.app_description %}
+  {% assign resolved_url = page.url | absolute_url %}
+  {% assign resolved_image = '/assets/product/report-builder-ipad.png' | absolute_url %}
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <base target="_blank" />
 
-  <title class="pageTitle">{{ site.page_title }}</title>
-  <meta name="description" content="{{ site.app_description }}" />
+  <title>{{ resolved_title }}</title>
+  <meta name="description" content="{{ resolved_description }}" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="{{ resolved_url }}" />
+  <meta property="og:title" content="{{ resolved_title }}" />
+  <meta property="og:description" content="{{ resolved_description }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ resolved_url }}" />
+  <meta property="og:site_name" content="{{ site.app_name }}" />
+  <meta property="og:image" content="{{ resolved_image }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ resolved_title }}" />
+  <meta name="twitter:description" content="{{ resolved_description }}" />
+  <meta name="twitter:image" content="{{ resolved_image }}" />
 
   <link rel="shortcut icon" href="{{ site.app_icon | relative_url }}" />
 
-  <!-- Smart App Banner -->
   {% if site.enable_smart_app_banner %}
   <meta name="apple-itunes-app" content="app-id={{ site.ios_app_id }}" />
   {% endif %}
 
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-    crossorigin="anonymous"
-  />
   <link rel="stylesheet" href="{{ '/main.css' | relative_url }}" />
-  <!-- Google tag (gtag.js) -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-CW74KH0YSC"
-  ></script>
+
+  {% if site.google_analytics_id %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_id }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-CW74KH0YSC");
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics_id }}');
   </script>
+  {% endif %}
+
+  {% if page.url == '/' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": {{ site.app_name | jsonify }},
+      "url": {{ site.url | jsonify }},
+      "image": {{ resolved_image | jsonify }},
+      "screenshot": [
+        {{ '/assets/product/report-builder-ipad.png' | absolute_url | jsonify }},
+        {{ '/assets/product/report-overview-mobile.png' | absolute_url | jsonify }},
+        {{ '/assets/product/calculator-ipad.png' | absolute_url | jsonify }}
+      ],
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Rehab estimate calculator",
+      "operatingSystem": "iOS, Android",
+      "description": {{ site.app_description | jsonify }},
+      "creator": {
+        "@type": "Person",
+        "name": {{ site.your_name | jsonify }},
+        "url": {{ site.your_link | jsonify }}
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Rehab cost ranges",
+        "Photo-backed estimate notes",
+        "PDF rehab reports",
+        "Fix and flip calculator",
+        "Rental cashflow calculator"
+      ],
+      "downloadUrl": [
+        {{ site.appstore_link | jsonify }},
+        {{ site.playstore_link | jsonify }}
+      ]
+    }
+  </script>
+  {% endif %}
+  {% unless page.url == '/' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": {{ site.url | jsonify }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ resolved_title | jsonify }},
+          "item": {{ resolved_url | jsonify }}
+        }
+      ]
+    }
+  </script>
+  {% endunless %}
 </head>
