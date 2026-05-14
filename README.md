@@ -105,9 +105,10 @@ Expected pass output:
 SEO crawl check passed for https://app.rehabestimator.app using local build _site
 - homepage: 200
 - robots.txt: 200, allows crawling, points to https://app.rehabestimator.app/sitemap.xml
-- sitemap.xml: 200 XML with 10 URLs and lastmod values
+- sitemap.xml: 200 XML with 19 URLs and lastmod values
 - sitemap coverage: homepage and calculator pages present
-- pages: 10 URLs returned 200, canonical matched, no noindex
+- localized pages: 4 English/Spanish hreflang pairs present
+- pages: 19 URLs returned 200, canonical matched, no noindex
 ```
 
 After deployment, the same crawl check can verify the live site:

@@ -1,60 +1,104 @@
+{% assign calculator_locale = include.locale | default: page.lang %}
+{% if calculator_locale == "es" %}
+  {% assign tool_title = "Calculadora de flujo de renta" %}
+  {% assign tool_description = "Estima flujo mensual, efectivo invertido y retorno con supuestos de remodelación y operación." %}
+  {% assign purchase_price_label = "Precio de compra" %}
+  {% assign rehab_cost_label = "Costo de reparaciones" %}
+  {% assign closing_cost_label = "Costos de cierre" %}
+  {% assign down_payment_label = "Pago inicial" %}
+  {% assign interest_rate_label = "Tasa de interés" %}
+  {% assign loan_years_label = "Años del préstamo" %}
+  {% assign monthly_rent_label = "Renta mensual" %}
+  {% assign vacancy_label = "Vacancia" %}
+  {% assign management_label = "Administración" %}
+  {% assign maintenance_label = "Mantenimiento" %}
+  {% assign annual_taxes_label = "Impuestos anuales" %}
+  {% assign annual_insurance_label = "Seguro anual" %}
+  {% assign misc_monthly_label = "Otros mensuales" %}
+  {% assign monthly_cashflow_label = "Flujo mensual" %}
+  {% assign cash_invested_label = "Efectivo invertido" %}
+  {% assign cash_return_label = "Retorno cash-on-cash" %}
+  {% assign breakdown_label = "Resumen de gastos mensuales" %}
+  {% assign cta_copy = "Guarda los supuestos de renta con fotos de reparaciones, notas y un estimado PDF." %}
+{% else %}
+  {% assign tool_title = "Rental Cashflow Calculator" %}
+  {% assign tool_description = "Estimate monthly cashflow, cash invested, and cash-on-cash return with rehab and operating assumptions." %}
+  {% assign purchase_price_label = "Purchase price" %}
+  {% assign rehab_cost_label = "Rehab cost" %}
+  {% assign closing_cost_label = "Closing cost" %}
+  {% assign down_payment_label = "Down payment" %}
+  {% assign interest_rate_label = "Interest rate" %}
+  {% assign loan_years_label = "Loan years" %}
+  {% assign monthly_rent_label = "Monthly rent" %}
+  {% assign vacancy_label = "Vacancy" %}
+  {% assign management_label = "Management" %}
+  {% assign maintenance_label = "Maintenance" %}
+  {% assign annual_taxes_label = "Annual taxes" %}
+  {% assign annual_insurance_label = "Annual insurance" %}
+  {% assign misc_monthly_label = "Misc monthly" %}
+  {% assign monthly_cashflow_label = "Monthly cashflow" %}
+  {% assign cash_invested_label = "Cash invested" %}
+  {% assign cash_return_label = "Cash-on-cash return" %}
+  {% assign breakdown_label = "Monthly expense summary" %}
+  {% assign cta_copy = "Save the rental assumptions with repair photos, notes, and a PDF estimate in Rehab Estimator." %}
+{% endif %}
 <section class="calculator-tool" data-calculator="rental-cashflow">
   <div class="calculator-tool__header">
-    <h2>Rental Cashflow Calculator</h2>
-    <p>Estimate monthly cashflow, cash invested, and cash-on-cash return with rehab and operating assumptions.</p>
+    <h2>{{ tool_title }}</h2>
+    <p>{{ tool_description }}</p>
   </div>
 
   <form class="calculator-form">
     <label>
-      <span>Purchase price</span>
+      <span>{{ purchase_price_label }}</span>
       <input type="number" min="1" step="5000" value="220000" data-input="purchasePrice" inputmode="decimal">
     </label>
     <label>
-      <span>Rehab cost</span>
+      <span>{{ rehab_cost_label }}</span>
       <input type="number" min="0" step="1000" value="30000" data-input="rehabCost" inputmode="decimal">
     </label>
     <label>
-      <span>Closing cost</span>
+      <span>{{ closing_cost_label }}</span>
       <input type="number" min="0" step="500" value="6000" data-input="closingCost" inputmode="decimal">
     </label>
     <label>
-      <span>Down payment</span>
+      <span>{{ down_payment_label }}</span>
       <input type="number" min="0" max="100" step="1" value="20" data-input="downPaymentRate" inputmode="decimal">
     </label>
     <label>
-      <span>Interest rate</span>
+      <span>{{ interest_rate_label }}</span>
       <input type="number" min="0" max="30" step="0.125" value="7" data-input="interestRate" inputmode="decimal">
     </label>
     <label>
-      <span>Loan years</span>
+      <span>{{ loan_years_label }}</span>
       <input type="number" min="1" max="40" step="1" value="30" data-input="loanYears" inputmode="decimal">
     </label>
     <label>
-      <span>Monthly rent</span>
+      <span>{{ monthly_rent_label }}</span>
       <input type="number" min="0" step="50" value="2400" data-input="rent" inputmode="decimal">
     </label>
     <label>
-      <span>Vacancy</span>
+      <span>{{ vacancy_label }}</span>
       <input type="number" min="0" max="100" step="1" value="5" data-input="vacancyRate" inputmode="decimal">
     </label>
     <label>
-      <span>Management</span>
+      <span>{{ management_label }}</span>
       <input type="number" min="0" max="100" step="1" value="8" data-input="managementRate" inputmode="decimal">
     </label>
     <label>
-      <span>Maintenance</span>
+      <span>{{ maintenance_label }}</span>
       <input type="number" min="0" max="100" step="1" value="5" data-input="maintenanceRate" inputmode="decimal">
     </label>
     <label>
-      <span>Annual taxes</span>
+      <span>{{ annual_taxes_label }}</span>
       <input type="number" min="0" step="100" value="3600" data-input="annualTaxes" inputmode="decimal">
     </label>
     <label>
-      <span>Annual insurance</span>
+      <span>{{ annual_insurance_label }}</span>
       <input type="number" min="0" step="100" value="1800" data-input="annualInsurance" inputmode="decimal">
     </label>
     <label>
-      <span>Misc monthly</span>
+      <span>{{ misc_monthly_label }}</span>
       <input type="number" min="0" step="25" value="75" data-input="miscMonthly" inputmode="decimal">
     </label>
   </form>
@@ -63,26 +107,26 @@
 
   <div class="calculator-results" aria-live="polite">
     <div>
-      <span>Monthly cashflow</span>
+      <span>{{ monthly_cashflow_label }}</span>
       <strong data-output="monthlyCashflow">$0</strong>
     </div>
     <div>
-      <span>Cash invested</span>
+      <span>{{ cash_invested_label }}</span>
       <strong data-output="cashInvested">$0</strong>
     </div>
     <div>
-      <span>Cash-on-cash return</span>
+      <span>{{ cash_return_label }}</span>
       <strong data-output="cashOnCashReturn">0%</strong>
     </div>
   </div>
 
   <div class="calculator-breakdown">
-    <h3>Monthly expense summary</h3>
+    <h3>{{ breakdown_label }}</h3>
     <dl data-output="breakdown"></dl>
   </div>
 
   <div class="calculator-tool__cta">
-    <p>Save the rental assumptions with repair photos, notes, and a PDF estimate in Rehab Estimator.</p>
+    <p>{{ cta_copy }}</p>
     {% include download_cta.html location="calculator_result" %}
   </div>
 </section>

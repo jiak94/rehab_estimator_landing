@@ -1,33 +1,64 @@
+{% assign is_spanish = false %}
+{% if page.lang == "es" %}
+  {% assign is_spanish = true %}
+{% endif %}
 <footer class="site-footer">
   <div class="footer-brand">
     <img class="brand-icon" src="{{ site.app_icon | relative_url }}" alt="" />
     <div>
       <strong>{{ site.app_name }}</strong>
+      {% if is_spanish %}
+      <p>{{ site.app_description_es }}</p>
+      {% else %}
       <p>{{ site.app_description }}</p>
+      {% endif %}
     </div>
   </div>
 
   <div class="footer-columns">
     <div>
+      {% if is_spanish %}
+      <h2>Producto</h2>
+      <a href="{{ '/es/#product' | relative_url }}" target="_self">Funciones</a>
+      <a href="{{ '/es/#proof' | relative_url }}" target="_self">Capturas</a>
+      <a href="{{ '/es/#sample-report' | relative_url }}" target="_self">Reporte ejemplo</a>
+      <a href="{{ '/' | relative_url }}" target="_self">English</a>
+      {% else %}
       <h2>Product</h2>
       <a href="{{ '/#product' | relative_url }}" target="_self">Features</a>
       <a href="{{ '/#proof' | relative_url }}" target="_self">Screenshots</a>
       <a href="{{ '/#sample-report' | relative_url }}" target="_self">Sample report</a>
       <a href="{{ '/changelog/' | relative_url }}" target="_self">What's New</a>
+      <a href="{{ '/es/' | relative_url }}" target="_self">Español</a>
+      {% endif %}
     </div>
     <div>
+      {% if is_spanish %}
+      <h2>Calculadoras</h2>
+      <a href="{{ '/es/calculadora-costos-remodelacion/' | relative_url }}" target="_self">Calculadora de costos de remodelación</a>
+      <a href="{{ '/es/calculadora-fix-and-flip/' | relative_url }}" target="_self">Calculadora fix and flip</a>
+      <a href="{{ '/es/calculadora-flujo-renta/' | relative_url }}" target="_self">Calculadora de flujo de renta</a>
+      {% else %}
       <h2>Calculators</h2>
       <a href="{{ '/rehab-cost-calculator/' | relative_url }}" target="_self">Rehab cost calculator</a>
       <a href="{{ '/fix-and-flip-calculator/' | relative_url }}" target="_self">Fix and flip calculator</a>
       <a href="{{ '/rental-cashflow-calculator/' | relative_url }}" target="_self">Rental cashflow calculator</a>
       <a href="{{ '/kitchen-remodel-cost-estimator/' | relative_url }}" target="_self">Kitchen remodel cost estimator</a>
       <a href="{{ '/bathroom-remodel-cost-estimator/' | relative_url }}" target="_self">Bathroom remodel cost estimator</a>
+      {% endif %}
     </div>
     <div>
+      {% if is_spanish %}
+      <h2>Legal</h2>
+      <a href="{{ '/privacypolicy/' | relative_url }}" target="_self">Política de privacidad</a>
+      <a href="{{ '/terms_of_use/' | relative_url }}" target="_self">Términos de uso</a>
+      <a href="{{ '/request_delete_data/' | relative_url }}" target="_self">Solicitud para eliminar datos</a>
+      {% else %}
       <h2>Legal</h2>
       <a href="{{ '/privacypolicy/' | relative_url }}" target="_self">Privacy Policy</a>
       <a href="{{ '/terms_of_use/' | relative_url }}" target="_self">Terms of Use</a>
       <a href="{{ '/request_delete_data/' | relative_url }}" target="_self">Data Deletion Request</a>
+      {% endif %}
       {% if site.email_address %}
       <a href="mailto:{{ site.email_address }}">{{ site.email_address }}</a>
       {% endif %}

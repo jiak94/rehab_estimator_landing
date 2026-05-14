@@ -6,6 +6,19 @@
   const container = document.querySelector('[data-calculator="fix-flip"]');
   if (!container || !formulas || !ui) return;
 
+  const isSpanish = document.documentElement.lang === "es";
+  const breakdownLabels = isSpanish ? {
+    holdingCost: "Costo de holding",
+    commission: "Comisión de agente",
+    nonPurchaseCost: "Costos fuera de compra",
+    totalProjectCost: "Costo total del proyecto"
+  } : {
+    holdingCost: "Holding cost",
+    commission: "Agent commission",
+    nonPurchaseCost: "Non-purchase costs",
+    totalProjectCost: "Total project cost"
+  };
+
   ui.bindCalculator(container, () => {
     const result = formulas.fixAndFlip({
       arv: ui.readNumber(container, "arv"),
@@ -23,10 +36,10 @@
     ui.setText(container, "projectedProfit", ui.formatCurrency(result.projectedProfit));
     ui.setText(container, "profitMargin", ui.formatPercent(result.profitMargin));
     ui.renderBreakdown(container, [
-      { label: "Holding cost", value: ui.formatCurrency(result.holdingCost) },
-      { label: "Agent commission", value: ui.formatCurrency(result.commission) },
-      { label: "Non-purchase costs", value: ui.formatCurrency(result.nonPurchaseCost) },
-      { label: "Total project cost", value: ui.formatCurrency(result.totalProjectCost) }
+      { label: breakdownLabels.holdingCost, value: ui.formatCurrency(result.holdingCost) },
+      { label: breakdownLabels.commission, value: ui.formatCurrency(result.commission) },
+      { label: breakdownLabels.nonPurchaseCost, value: ui.formatCurrency(result.nonPurchaseCost) },
+      { label: breakdownLabels.totalProjectCost, value: ui.formatCurrency(result.totalProjectCost) }
     ]);
     if (window.RehabAnalytics) {
       window.RehabAnalytics.trackCalculatorResult("fix_and_flip");

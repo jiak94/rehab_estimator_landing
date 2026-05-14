@@ -9,8 +9,11 @@
 
   function calculatorNameFromPath(path) {
     if (path.includes("rehab-cost-calculator")) return "rehab_cost";
+    if (path.includes("calculadora-costos-remodelacion")) return "rehab_cost";
     if (path.includes("fix-and-flip-calculator")) return "fix_and_flip";
+    if (path.includes("calculadora-fix-and-flip")) return "fix_and_flip";
     if (path.includes("rental-cashflow-calculator")) return "rental_cashflow";
+    if (path.includes("calculadora-flujo-renta")) return "rental_cashflow";
     return "";
   }
 

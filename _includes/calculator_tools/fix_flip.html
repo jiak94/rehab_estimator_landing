@@ -1,44 +1,80 @@
+{% assign calculator_locale = include.locale | default: page.lang %}
+{% if calculator_locale == "es" %}
+  {% assign tool_title = "Calculadora fix and flip" %}
+  {% assign tool_description = "Estima precio máximo de compra y utilidad proyectada con ARV, reparaciones, venta y tiempo de holding." %}
+  {% assign arv_label = "Valor después de reparar" %}
+  {% assign purchase_price_label = "Precio de compra" %}
+  {% assign desired_profit_label = "Utilidad deseada" %}
+  {% assign repair_cost_label = "Costo de reparaciones" %}
+  {% assign purchase_costs_label = "Costos de compra" %}
+  {% assign selling_costs_label = "Costos de venta" %}
+  {% assign monthly_holding_label = "Holding mensual" %}
+  {% assign holding_months_label = "Meses de holding" %}
+  {% assign commission_label = "Comisión de agente" %}
+  {% assign max_purchase_label = "Precio máximo de compra" %}
+  {% assign projected_profit_label = "Utilidad proyectada" %}
+  {% assign profit_margin_label = "Margen de utilidad" %}
+  {% assign breakdown_label = "Resumen de costos" %}
+  {% assign cta_copy = "Guarda los supuestos del proyecto junto al alcance de reparaciones, fotos y reporte PDF." %}
+{% else %}
+  {% assign tool_title = "Fix and Flip Calculator" %}
+  {% assign tool_description = "Estimate maximum purchase price and projected profit from ARV, repairs, selling costs, and hold time." %}
+  {% assign arv_label = "After repair value" %}
+  {% assign purchase_price_label = "Purchase price" %}
+  {% assign desired_profit_label = "Desired profit" %}
+  {% assign repair_cost_label = "Repair cost" %}
+  {% assign purchase_costs_label = "Purchase costs" %}
+  {% assign selling_costs_label = "Selling costs" %}
+  {% assign monthly_holding_label = "Holding cost per month" %}
+  {% assign holding_months_label = "Holding months" %}
+  {% assign commission_label = "Agent commission" %}
+  {% assign max_purchase_label = "Maximum purchase price" %}
+  {% assign projected_profit_label = "Projected profit" %}
+  {% assign profit_margin_label = "Profit margin" %}
+  {% assign breakdown_label = "Cost summary" %}
+  {% assign cta_copy = "Save the deal assumptions with the repair scope, photos, and PDF report in Rehab Estimator." %}
+{% endif %}
 <section class="calculator-tool" data-calculator="fix-flip">
   <div class="calculator-tool__header">
-    <h2>Fix and Flip Calculator</h2>
-    <p>Estimate maximum purchase price and projected profit from ARV, repairs, selling costs, and hold time.</p>
+    <h2>{{ tool_title }}</h2>
+    <p>{{ tool_description }}</p>
   </div>
 
   <form class="calculator-form">
     <label>
-      <span>After repair value</span>
+      <span>{{ arv_label }}</span>
       <input type="number" min="1" step="5000" value="350000" data-input="arv" inputmode="decimal">
     </label>
     <label>
-      <span>Purchase price</span>
+      <span>{{ purchase_price_label }}</span>
       <input type="number" min="0" step="5000" value="230000" data-input="purchasePrice" inputmode="decimal">
     </label>
     <label>
-      <span>Desired profit</span>
+      <span>{{ desired_profit_label }}</span>
       <input type="number" min="0" step="1000" value="40000" data-input="desiredProfit" inputmode="decimal">
     </label>
     <label>
-      <span>Repair cost</span>
+      <span>{{ repair_cost_label }}</span>
       <input type="number" min="0" step="1000" value="45000" data-input="repairCost" inputmode="decimal">
     </label>
     <label>
-      <span>Purchase costs</span>
+      <span>{{ purchase_costs_label }}</span>
       <input type="number" min="0" step="500" value="6000" data-input="purchaseCost" inputmode="decimal">
     </label>
     <label>
-      <span>Selling costs</span>
+      <span>{{ selling_costs_label }}</span>
       <input type="number" min="0" step="500" value="5000" data-input="saleCost" inputmode="decimal">
     </label>
     <label>
-      <span>Holding cost per month</span>
+      <span>{{ monthly_holding_label }}</span>
       <input type="number" min="0" step="100" value="2200" data-input="monthlyHoldingCost" inputmode="decimal">
     </label>
     <label>
-      <span>Holding months</span>
+      <span>{{ holding_months_label }}</span>
       <input type="number" min="0" step="1" value="5" data-input="holdingMonths" inputmode="decimal">
     </label>
     <label>
-      <span>Agent commission</span>
+      <span>{{ commission_label }}</span>
       <input type="number" min="0" max="12" step="0.25" value="6" data-input="commissionRate" inputmode="decimal">
     </label>
   </form>
@@ -47,26 +83,26 @@
 
   <div class="calculator-results" aria-live="polite">
     <div>
-      <span>Maximum purchase price</span>
+      <span>{{ max_purchase_label }}</span>
       <strong data-output="maxPurchasePrice">$0</strong>
     </div>
     <div>
-      <span>Projected profit</span>
+      <span>{{ projected_profit_label }}</span>
       <strong data-output="projectedProfit">$0</strong>
     </div>
     <div>
-      <span>Profit margin</span>
+      <span>{{ profit_margin_label }}</span>
       <strong data-output="profitMargin">0%</strong>
     </div>
   </div>
 
   <div class="calculator-breakdown">
-    <h3>Cost summary</h3>
+    <h3>{{ breakdown_label }}</h3>
     <dl data-output="breakdown"></dl>
   </div>
 
   <div class="calculator-tool__cta">
-    <p>Save the deal assumptions with the repair scope, photos, and PDF report in Rehab Estimator.</p>
+    <p>{{ cta_copy }}</p>
     {% include download_cta.html location="calculator_result" %}
   </div>
 </section>

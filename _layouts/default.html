@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en-us">
+{% assign html_lang = page.lang | default: "en-us" %}
+<html lang="{{ html_lang }}">
 
 {% include head.html %}
 
