@@ -5,6 +5,10 @@ seo_title: Fix and Flip Calculator for Rehab Deals | Rehab Estimator
 meta_description: Calculate flip profit with purchase price, rehab budget, ARV, holding costs, selling costs, financing, and contingency.
 include_in_header: false
 permalink: /fix-and-flip-calculator/
+scripts:
+  - /assets/js/calculators/formulas.js
+  - /assets/js/calculators/ui.js
+  - /assets/js/calculators/fix-flip.js
 faqs:
   - question: What numbers should a fix and flip calculator use?
     answer: A fix and flip calculator should include purchase price, after repair value, rehab cost, closing costs, holding costs, selling costs, financing costs, contingency, and target profit.
@@ -29,6 +33,8 @@ related_calculators:
   <h1>Pressure-test a flip with repair, resale, holding, and selling costs.</h1>
   <p>Connect the rehab estimate to the deal model so a stronger resale price does not hide a weak repair budget.</p>
 </div>
+
+{% include calculator_tools/fix_flip.html %}
 
 ## What to calculate before making an offer
 
