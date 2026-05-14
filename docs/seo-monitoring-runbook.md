@@ -16,7 +16,8 @@ Recorded from Google Search Console on May 15, 2026:
 - Sitemap: `https://app.rehabestimator.app/sitemap.xml`
 - Sitemap status after submission: `Success`
 - Sitemap last read: May 15, 2026
-- Sitemap discovered pages: 10
+- Sitemap discovered pages before Spanish launch: 10
+- Expected sitemap pages after Spanish launch: 19
 
 ## Weekly Check
 
@@ -42,11 +43,15 @@ Run this check once per week after sitemap or calculator page changes deploy.
    - Top queries
    - Top pages
 5. Compare calculator pages:
+   - `/es/`
    - `/rehab-cost-calculator/`
    - `/fix-and-flip-calculator/`
    - `/rental-cashflow-calculator/`
    - `/kitchen-remodel-cost-estimator/`
    - `/bathroom-remodel-cost-estimator/`
+   - `/es/calculadora-costos-remodelacion/`
+   - `/es/calculadora-fix-and-flip/`
+   - `/es/calculadora-flujo-renta/`
 6. Record changes in the active SEO issue or a dated note in this file.
 
 ## GA Events

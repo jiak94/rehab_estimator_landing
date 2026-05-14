@@ -1,12 +1,44 @@
+{% assign is_spanish = false %}
+{% if page.lang == "es" %}
+  {% assign is_spanish = true %}
+{% endif %}
+{% if is_spanish %}
+  {% assign home_url = "/es/" %}
+  {% assign product_url = "/es/#product" %}
+  {% assign proof_url = "/es/#proof" %}
+  {% assign calculators_url = "/es/calculadora-costos-remodelacion/" %}
+  {% assign product_label = "Producto" %}
+  {% assign proof_label = "Prueba" %}
+  {% assign calculators_label = "Calculadoras" %}
+  {% assign download_label = "Descargar" %}
+  {% assign nav_label = "Navegación principal" %}
+  {% assign language_url = "/" %}
+  {% assign language_label = "English" %}
+  {% assign brand_label = site.app_name | append: " inicio" %}
+{% else %}
+  {% assign home_url = "/" %}
+  {% assign product_url = "/#product" %}
+  {% assign proof_url = "/#proof" %}
+  {% assign calculators_url = "/rehab-cost-calculator/" %}
+  {% assign product_label = "Product" %}
+  {% assign proof_label = "Proof" %}
+  {% assign calculators_label = "Calculators" %}
+  {% assign download_label = "Download" %}
+  {% assign nav_label = "Primary navigation" %}
+  {% assign language_url = "/es/" %}
+  {% assign language_label = "Español" %}
+  {% assign brand_label = site.app_name | append: " home" %}
+{% endif %}
 <header class="site-header">
-  <a class="brand" href="{{ '/' | relative_url }}" target="_self" aria-label="{{ site.app_name }} home">
+  <a class="brand" href="{{ home_url | relative_url }}" target="_self" aria-label="{{ brand_label }}">
     <img class="brand-icon" src="{{ site.app_icon | relative_url }}" alt="" />
     <span>{{ site.app_name }}</span>
   </a>
-  <nav class="site-nav" aria-label="Primary navigation">
-    <a href="{{ '/#product' | relative_url }}" target="_self">Product</a>
-    <a href="{{ '/#proof' | relative_url }}" target="_self">Proof</a>
-    <a href="{{ '/rehab-cost-calculator/' | relative_url }}" target="_self">Calculators</a>
-    <a href="{{ site.appstore_link }}" class="nav-cta" data-analytics-event="app_store_cta_click" data-store="app_store" data-cta-location="header">Download</a>
+  <nav class="site-nav" aria-label="{{ nav_label }}">
+    <a href="{{ product_url | relative_url }}" target="_self">{{ product_label }}</a>
+    <a href="{{ proof_url | relative_url }}" target="_self">{{ proof_label }}</a>
+    <a href="{{ calculators_url | relative_url }}" target="_self">{{ calculators_label }}</a>
+    <a href="{{ language_url | relative_url }}" target="_self">{{ language_label }}</a>
+    <a href="{{ site.appstore_link }}" class="nav-cta" data-analytics-event="app_store_cta_click" data-store="app_store" data-cta-location="header">{{ download_label }}</a>
   </nav>
 </header>

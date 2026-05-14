@@ -3,6 +3,18 @@
   {% assign resolved_description = page.meta_description | default: site.app_description %}
   {% assign resolved_url = page.url | absolute_url %}
   {% assign resolved_image = '/assets/product/report-builder-ipad.png' | absolute_url %}
+  {% assign localized_en = "" %}
+  {% assign localized_es = "" %}
+  {% for localized_pair in site.localized_page_pairs %}
+    {% if localized_pair.en == page.url or localized_pair.es == page.url %}
+      {% assign localized_en = localized_pair.en %}
+      {% assign localized_es = localized_pair.es %}
+    {% endif %}
+  {% endfor %}
+  {% assign home_label = "Home" %}
+  {% if page.lang == "es" %}
+    {% assign home_label = "Inicio" %}
+  {% endif %}
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,11 +23,21 @@
   <meta name="description" content="{{ resolved_description }}" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="{{ resolved_url }}" />
+  {% if localized_en != "" and localized_es != "" %}
+  <link rel="alternate" hreflang="en" href="{{ localized_en | absolute_url }}" />
+  <link rel="alternate" hreflang="es" href="{{ localized_es | absolute_url }}" />
+  <link rel="alternate" hreflang="x-default" href="{{ localized_en | absolute_url }}" />
+  {% endif %}
   <meta property="og:title" content="{{ resolved_title }}" />
   <meta property="og:description" content="{{ resolved_description }}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{{ resolved_url }}" />
   <meta property="og:site_name" content="{{ site.app_name }}" />
+  {% if page.lang == "es" %}
+  <meta property="og:locale" content="es_US" />
+  {% else %}
+  <meta property="og:locale" content="en_US" />
+  {% endif %}
   <meta property="og:image" content="{{ resolved_image }}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{{ resolved_title }}" />
@@ -40,7 +62,7 @@
   </script>
   {% endif %}
 
-  {% if page.url == '/' %}
+  {% if page.url == '/' or page.url == '/es/' %}
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -56,7 +78,7 @@
       "applicationCategory": "BusinessApplication",
       "applicationSubCategory": "Rehab estimate calculator",
       "operatingSystem": "iOS, Android",
-      "description": {{ site.app_description | jsonify }},
+      "description": {{ resolved_description | jsonify }},
       "creator": {
         "@type": "Person",
         "name": {{ site.your_name | jsonify }},
@@ -81,7 +103,7 @@
     }
   </script>
   {% endif %}
-  {% unless page.url == '/' %}
+  {% unless page.url == '/' or page.url == '/es/' %}
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -90,7 +112,7 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
+          "name": {{ home_label | jsonify }},
           "item": {{ site.url | jsonify }}
         },
         {

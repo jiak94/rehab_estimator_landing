@@ -125,6 +125,21 @@ def canonical_href(html)
   nil
 end
 
+def html_lang(html)
+  match = html.match(/<html\b[^>]*\blang=["']([^"']+)["']/i)
+  match && match[1]
+end
+
+def hreflang_links(html)
+  html.scan(/<link\b[^>]*>/i).each_with_object({}) do |tag, links|
+    next unless tag.match?(/\brel=["'][^"']*\balternate\b[^"']*["']/i)
+
+    lang = tag.match(/\bhreflang=["']([^"']+)["']/i)&.[](1)
+    href = tag.match(/\bhref=["']([^"']+)["']/i)&.[](1)
+    links[lang] = href if lang && href
+  end
+end
+
 def noindex?(html)
   html.scan(/<meta\b[^>]*>/i).any? do |tag|
     tag.match?(/\bname=["']robots["']/i) && tag.match?(/\bcontent=["'][^"']*\bnoindex\b/i)
@@ -134,8 +149,13 @@ end
 config = YAML.load_file(options[:config])
 base_url = normalize_base_url(options[:base_url] || ENV["SEO_BASE_URL"] || config.fetch("url"))
 sitemap_config = config.fetch("sitemap_urls")
+localized_page_pairs = config.fetch("localized_page_pairs") { fail!("_config.yml is missing localized_page_pairs") }
+fail!("_config.yml localized_page_pairs is empty") if localized_page_pairs.empty?
 expected_urls = sitemap_config.map { |entry| absolute_url(base_url, entry.fetch("path")) }
 calculator_urls = expected_urls.select { |url| url.include?("calculator") || url.include?("estimator") }
+localized_urls = localized_page_pairs.flat_map do |pair|
+  [absolute_url(base_url, pair.fetch("en")), absolute_url(base_url, pair.fetch("es"))]
+end
 
 homepage = fetch(absolute_url(base_url, "/"), options)
 assert_200!(homepage, "homepage")
@@ -160,6 +180,9 @@ fail!("sitemap.xml is missing calculator URLs: #{missing_calculators.join(", ")}
 missing_config_urls = expected_urls - locs
 fail!("sitemap.xml is missing configured URLs: #{missing_config_urls.join(", ")}") unless missing_config_urls.empty?
 
+missing_localized_urls = localized_urls.uniq - locs
+fail!("sitemap.xml is missing localized URLs: #{missing_localized_urls.join(", ")}") unless missing_localized_urls.empty?
+
 missing_lastmod = entries.select { |entry| entry["loc"].to_s.empty? || entry["lastmod"].to_s.empty? }.map { |entry| entry["loc"] }
 fail!("sitemap.xml entries are missing lastmod: #{missing_lastmod.join(", ")}") unless missing_lastmod.empty?
 
@@ -170,10 +193,35 @@ locs.each do |loc|
   fail!("#{loc} emits noindex") if noindex?(page.body)
 end
 
+localized_page_pairs.each do |pair|
+  variants = {
+    "en" => absolute_url(base_url, pair.fetch("en")),
+    "es" => absolute_url(base_url, pair.fetch("es"))
+  }
+
+  variants.each do |lang, url|
+    page = fetch(url, options)
+    assert_200!(page, url)
+
+    expected_html_lang = lang == "es" ? "es" : "en-us"
+    fail!("#{url} has html lang #{html_lang(page.body).inspect}, expected #{expected_html_lang.inspect}") unless html_lang(page.body) == expected_html_lang
+
+    links = hreflang_links(page.body)
+    variants.each do |alternate_lang, alternate_url|
+      next if links[alternate_lang] == alternate_url
+
+      fail!("#{url} is missing hreflang #{alternate_lang} => #{alternate_url}")
+    end
+
+    fail!("#{url} is missing hreflang x-default => #{variants.fetch("en")}") unless links["x-default"] == variants.fetch("en")
+  end
+end
+
 mode = options[:site_dir] ? "local build #{options[:site_dir]}" : "HTTP"
 puts "SEO crawl check passed for #{base_url} using #{mode}"
 puts "- homepage: 200"
 puts "- robots.txt: 200, allows crawling, points to #{absolute_url(base_url, "/sitemap.xml")}"
 puts "- sitemap.xml: 200 XML with #{locs.length} URLs and lastmod values"
 puts "- sitemap coverage: homepage and calculator pages present"
+puts "- localized pages: #{localized_page_pairs.length} English/Spanish hreflang pairs present"
 puts "- pages: #{locs.length} URLs returned 200, canonical matched, no noindex"

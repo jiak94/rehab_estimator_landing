@@ -1,6 +1,10 @@
 {% if page.related_calculators %}
+{% assign related_heading = "Related Calculator Guides" %}
+{% if page.lang == "es" %}
+  {% assign related_heading = "Guías de calculadoras relacionadas" %}
+{% endif %}
 <section class="related-calculators">
-  <h2>Related Calculator Guides</h2>
+  <h2>{{ related_heading }}</h2>
   <ul>
     {% for related_page in page.related_calculators %}
     <li>

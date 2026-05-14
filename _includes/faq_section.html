@@ -1,6 +1,10 @@
 {% if page.faqs %}
+{% assign faq_heading = "Frequently Asked Questions" %}
+{% if page.lang == "es" %}
+  {% assign faq_heading = "Preguntas frecuentes" %}
+{% endif %}
 <section class="faq-section">
-  <h2>Frequently Asked Questions</h2>
+  <h2>{{ faq_heading }}</h2>
   {% for faq in page.faqs %}
   <div class="faq-item">
     <h3>{{ faq.question }}</h3>

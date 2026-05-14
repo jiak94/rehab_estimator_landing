@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+{% assign html_lang = page.lang | default: "es" %}
+<html lang="{{ html_lang }}">
+
+{% include head.html %}
+
+<body>
+  {% include header.html %}
+
+  <main>
+    <section class="hero">
+      <div class="hero-media" aria-hidden="true">
+        <img src="{{ '/assets/product/report-builder-ipad.png' | relative_url }}" alt="" />
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow">App de estimados para remodelación, inversionistas y contratistas</p>
+        <h1>Rehab Estimator</h1>
+        <p class="hero-copy">
+          Crea estimados de reparaciones, agrega fotos, calcula los números del proyecto y comparte un reporte PDF desde el recorrido de la propiedad.
+        </p>
+        {% include download_cta.html %}
+        <div class="hero-proof" aria-label="Puntos principales del producto">
+          <span>Rangos de costo</span>
+          <span>Notas con fotos</span>
+          <span>Reporte PDF</span>
+          <span>iOS y Android</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="product" class="section product-section">
+      <div class="section-heading">
+        <p class="eyebrow">Hecho para decisiones en campo</p>
+        <h2>Del recorrido a una cotización revisable en un solo flujo.</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-index">01</span>
+          <h3>Estimados por alcance</h3>
+          <p>Organiza reparaciones por interior, exterior y trabajo general con cantidades, rangos y notas.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-index">02</span>
+          <h3>Plantillas de trabajo</h3>
+          <p>Empieza con partidas comunes y ajusta materiales, mano de obra y prioridades según la propiedad.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-index">03</span>
+          <h3>Reportes con fotos</h3>
+          <p>Adjunta fotos del sitio y comparte un PDF claro con socios, contratistas o clientes.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-index">04</span>
+          <h3>Calculadoras del proyecto</h3>
+          <p>Revisa costos de remodelación, fix and flip y flujo de renta desde la misma información.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="proof" class="section proof-section">
+      <div class="proof-copy">
+        <p class="eyebrow">Prueba del producto</p>
+        <h2>Usa los mismos datos en reportes, calculadoras y biblioteca de trabajos.</h2>
+        <p>
+          Rehab Estimator mantiene partidas, cantidades, fotos y números del proyecto en una sola superficie para revisar el estimado antes de compartirlo.
+        </p>
+      </div>
+      <div class="screenshot-grid" aria-label="Capturas de la app">
+        <figure class="screenshot tall">
+          <img src="{{ '/assets/product/report-overview-mobile.png' | relative_url }}" alt="Resumen móvil de Rehab Estimator con partidas y total estimado" />
+        </figure>
+        <figure class="screenshot">
+          <img src="{{ '/assets/product/calculator-ipad.png' | relative_url }}" alt="Pantalla de calculadora de Rehab Estimator en iPad" />
+        </figure>
+      </div>
+    </section>
+
+    <section id="sample-report" class="section report-section">
+      <div class="section-heading">
+        <p class="eyebrow">Vista de reporte</p>
+        <h2>Convierte un estimado de trabajo en un PDF listo para revisar.</h2>
+      </div>
+      <div class="report-preview">
+        <div class="report-sheet">
+          <div class="report-head">
+            <span>Estimado de remodelación</span>
+            <strong>$28,100 a $49,200</strong>
+          </div>
+          <div class="report-property">
+            <p>123 Calle Demo</p>
+            <p>Propiedad de 1,850 sqft</p>
+          </div>
+          <div class="report-table" role="table" aria-label="Tabla de costos de reporte ejemplo">
+            <div role="row">
+              <span role="cell">Reemplazo de techo</span>
+              <strong role="cell">$9,200 a $14,600</strong>
+            </div>
+            <div role="row">
+              <span role="cell">Gabinetes y cubiertas</span>
+              <strong role="cell">$11,400 a $20,700</strong>
+            </div>
+            <div role="row">
+              <span role="cell">Pintura interior</span>
+              <strong role="cell">$2,800 a $5,200</strong>
+            </div>
+          </div>
+          <div class="photo-strip" aria-label="Espacios para fotos adjuntas">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="report-points">
+          <h3>Qué lleva el PDF</h3>
+          <ul>
+            <li>Categorías de alcance y rangos de costo por partida.</li>
+            <li>Datos de la propiedad desde el reporte.</li>
+            <li>Fotos y notas para revisión con contratistas o socios.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section seo-section">
+      <div class="section-heading">
+        <p class="eyebrow">Páginas de estimado</p>
+        <h2>Calculadoras para búsquedas comunes de remodelación.</h2>
+      </div>
+      <div class="seo-grid">
+        <a href="{{ '/es/calculadora-costos-remodelacion/' | relative_url }}" target="_self">
+          <span>Calculadora de costos de remodelación</span>
+          <p>Planea un presupuesto por cuarto, categoría, materiales y mano de obra.</p>
+        </a>
+        <a href="{{ '/es/calculadora-fix-and-flip/' | relative_url }}" target="_self">
+          <span>Calculadora fix and flip</span>
+          <p>Compara compra, reparaciones, holding, venta, ARV y utilidad.</p>
+        </a>
+        <a href="{{ '/es/calculadora-flujo-renta/' | relative_url }}" target="_self">
+          <span>Calculadora de flujo de renta</span>
+          <p>Estima renta mensual, financiamiento, vacancia, gastos y flujo neto.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div>
+        <p class="eyebrow">Empieza desde la propiedad</p>
+        <h2>Arma el estimado donde aparecen las preguntas.</h2>
+      </div>
+      {% include download_cta.html %}
+    </section>
+  </main>
+
+  {% include footer.html %}
+  <script src="{{ '/assets/js/analytics.js' | relative_url }}" defer></script>
+</body>
+</html>

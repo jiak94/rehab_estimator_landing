@@ -6,6 +6,23 @@
   const container = document.querySelector('[data-calculator="rental-cashflow"]');
   if (!container || !formulas || !ui) return;
 
+  const isSpanish = document.documentElement.lang === "es";
+  const breakdownLabels = isSpanish ? {
+    loanPayment: "Pago del préstamo",
+    vacancy: "Vacancia",
+    management: "Administración",
+    maintenance: "Mantenimiento",
+    taxesAndInsurance: "Impuestos y seguro",
+    operatingExpenses: "Gastos operativos"
+  } : {
+    loanPayment: "Loan payment",
+    vacancy: "Vacancy",
+    management: "Management",
+    maintenance: "Maintenance",
+    taxesAndInsurance: "Taxes and insurance",
+    operatingExpenses: "Operating expenses"
+  };
+
   ui.bindCalculator(container, () => {
     const result = formulas.rentalCashflow({
       purchasePrice: ui.readNumber(container, "purchasePrice"),
@@ -27,12 +44,12 @@
     ui.setText(container, "cashInvested", ui.formatCurrency(result.cashInvested));
     ui.setText(container, "cashOnCashReturn", ui.formatPercent(result.cashOnCashReturn));
     ui.renderBreakdown(container, [
-      { label: "Loan payment", value: ui.formatCurrency(result.loanPayment) },
-      { label: "Vacancy", value: ui.formatCurrency(result.vacancy) },
-      { label: "Management", value: ui.formatCurrency(result.management) },
-      { label: "Maintenance", value: ui.formatCurrency(result.maintenance) },
-      { label: "Taxes and insurance", value: ui.formatCurrency(result.taxes + result.insurance) },
-      { label: "Operating expenses", value: ui.formatCurrency(result.operatingExpenses) }
+      { label: breakdownLabels.loanPayment, value: ui.formatCurrency(result.loanPayment) },
+      { label: breakdownLabels.vacancy, value: ui.formatCurrency(result.vacancy) },
+      { label: breakdownLabels.management, value: ui.formatCurrency(result.management) },
+      { label: breakdownLabels.maintenance, value: ui.formatCurrency(result.maintenance) },
+      { label: breakdownLabels.taxesAndInsurance, value: ui.formatCurrency(result.taxes + result.insurance) },
+      { label: breakdownLabels.operatingExpenses, value: ui.formatCurrency(result.operatingExpenses) }
     ]);
     if (window.RehabAnalytics) {
       window.RehabAnalytics.trackCalculatorResult("rental_cashflow");
