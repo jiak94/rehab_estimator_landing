@@ -34,5 +34,8 @@
       { label: "Taxes and insurance", value: ui.formatCurrency(result.taxes + result.insurance) },
       { label: "Operating expenses", value: ui.formatCurrency(result.operatingExpenses) }
     ]);
+    if (window.RehabAnalytics) {
+      window.RehabAnalytics.trackCalculatorResult("rental_cashflow");
+    }
   });
 })();

@@ -28,5 +28,8 @@
       { label: "Non-purchase costs", value: ui.formatCurrency(result.nonPurchaseCost) },
       { label: "Total project cost", value: ui.formatCurrency(result.totalProjectCost) }
     ]);
+    if (window.RehabAnalytics) {
+      window.RehabAnalytics.trackCalculatorResult("fix_and_flip");
+    }
   });
 })();
