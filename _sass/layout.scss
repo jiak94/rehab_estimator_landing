@@ -567,6 +567,65 @@ main {
   margin-top: 22px;
 }
 
+.related-calculators,
+.faq-section {
+  margin-top: 34px;
+  padding-top: 28px;
+  border-top: 1px solid $soft-border-color;
+}
+
+.related-calculators h2,
+.faq-section h2 {
+  color: $primary-text-color;
+  font-size: 2.6rem;
+  line-height: 1.2;
+}
+
+.related-calculators ul {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.related-calculators li {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba($soft-border-color, 0.72);
+}
+
+.related-calculators li:last-child {
+  border-bottom: 0;
+}
+
+.related-calculators a {
+  display: inline-block;
+  font-weight: 750;
+}
+
+.related-calculators span {
+  display: block;
+  margin-top: 6px;
+  color: $muted-text-color;
+  font-size: 1.55rem;
+  line-height: 1.45;
+}
+
+.faq-item {
+  margin-top: 20px;
+}
+
+.faq-item h3 {
+  color: $primary-text-color;
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+.faq-item p {
+  margin-top: 8px;
+  color: $muted-text-color;
+}
+
 .hidden {
   display: none;
 }

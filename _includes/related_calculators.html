@@ -1,0 +1,13 @@
+{% if page.related_calculators %}
+<section class="related-calculators">
+  <h2>Related Calculator Guides</h2>
+  <ul>
+    {% for related_page in page.related_calculators %}
+    <li>
+      <a href="{{ related_page.url | relative_url }}">{{ related_page.title }}</a>
+      <span>{{ related_page.description }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
