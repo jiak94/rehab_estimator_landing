@@ -104,7 +104,7 @@ features                                  :
 # Theme Settings
 topbar_color                              : "#ffffff"
 topbar_transparency                       : 1
-topbar_title_color                        : "#171A1F"
+topbar_title_color                        : "#1D2228"
 
 cover_image                               : assets/product/report-builder-ipad.png
 cover_overlay_color                       : "#ffffff"
@@ -112,24 +112,24 @@ cover_overlay_transparency                : 0
 
 device_color                              : black                                     # Set to: blue, black, yellow, coral or white.
 
-body_background_color                     : "#F6F3EE"
+body_background_color                     : "#F6F7F4"
 
-link_color                                : "#E36F1E"
+link_color                                : "#A9571E"
 
-app_title_color                           : "#171A1F"
-app_price_color                           : "#4A5568"
-app_description_color                     : "#4A5568"
+app_title_color                           : "#1D2228"
+app_price_color                           : "#5F685C"
+app_description_color                     : "#5F685C"
 
-feature_title_color                       : "#171A1F"
-feature_text_color                        : "#4A5568"
+feature_title_color                       : "#1D2228"
+feature_text_color                        : "#5F685C"
 
-feature_icons_foreground_color            : "#E36F1E"
-feature_icons_background_color            : "#FFF3E8"
+feature_icons_foreground_color            : "#D97B18"
+feature_icons_background_color            : "#FFF4EA"
 
-social_icons_foreground_color             : "#4A5568"
-social_icons_background_color             : "#ECE7DE"
+social_icons_foreground_color             : "#5F685C"
+social_icons_background_color             : "#ECEFE8"
 
-footer_text_color                         : "#4A5568"
+footer_text_color                         : "#5F685C"
 
 
 

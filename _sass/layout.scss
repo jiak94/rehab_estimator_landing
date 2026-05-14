@@ -109,7 +109,7 @@ main {
   object-position: right center;
   opacity: 0.72;
   background: $paper-color;
-  box-shadow: 0 28px 80px rgba(33, 28, 22, 0.14);
+  box-shadow: 0 24px 64px rgba($primary-text-color, 0.12);
   transform: none;
 }
 
@@ -379,7 +379,7 @@ main {
   min-height: 88px;
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(227, 111, 30, 0.34), rgba(44, 54, 66, 0.16)),
+    linear-gradient(135deg, rgba($accent-color, 0.26), rgba($primary-text-color, 0.14)),
     $accent-soft-color;
 }
 
@@ -603,7 +603,7 @@ main {
 .calculator-error {
   min-height: 24px;
   margin-top: 14px;
-  color: #9b3516;
+  color: #8c3f12;
   font-size: 1.5rem;
   font-weight: 700;
 }
