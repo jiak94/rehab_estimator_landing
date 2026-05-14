@@ -3,15 +3,11 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for sitemap_url in site.sitemap_urls %}
   <url>
-    <loc>{{ '/' | absolute_url }}</loc>
-    <priority>1.0</priority>
-  </url>
-  {% assign sitemap_urls = '/rehab-cost-calculator/,/fix-and-flip-calculator/,/rental-cashflow-calculator/,/kitchen-remodel-cost-estimator/,/bathroom-remodel-cost-estimator/,/changelog/,/privacypolicy/,/terms_of_use/,/request_delete_data/' | split: ',' %}
-  {% for sitemap_url in sitemap_urls %}
-  <url>
-    <loc>{{ sitemap_url | absolute_url }}</loc>
-    <priority>{% if sitemap_url contains 'calculator' or sitemap_url contains 'estimator' %}0.8{% else %}0.4{% endif %}</priority>
+    <loc>{{ sitemap_url.path | absolute_url | xml_escape }}</loc>
+    <lastmod>{{ sitemap_url.lastmod | date: "%Y-%m-%d" }}</lastmod>
+    <priority>{{ sitemap_url.priority }}</priority>
   </url>
   {% endfor %}
 </urlset>
