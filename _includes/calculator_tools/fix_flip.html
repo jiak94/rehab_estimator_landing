@@ -1,0 +1,72 @@
+<section class="calculator-tool" data-calculator="fix-flip">
+  <div class="calculator-tool__header">
+    <h2>Fix and Flip Calculator</h2>
+    <p>Estimate maximum purchase price and projected profit from ARV, repairs, selling costs, and hold time.</p>
+  </div>
+
+  <form class="calculator-form">
+    <label>
+      <span>After repair value</span>
+      <input type="number" min="1" step="5000" value="350000" data-input="arv" inputmode="decimal">
+    </label>
+    <label>
+      <span>Purchase price</span>
+      <input type="number" min="0" step="5000" value="230000" data-input="purchasePrice" inputmode="decimal">
+    </label>
+    <label>
+      <span>Desired profit</span>
+      <input type="number" min="0" step="1000" value="40000" data-input="desiredProfit" inputmode="decimal">
+    </label>
+    <label>
+      <span>Repair cost</span>
+      <input type="number" min="0" step="1000" value="45000" data-input="repairCost" inputmode="decimal">
+    </label>
+    <label>
+      <span>Purchase costs</span>
+      <input type="number" min="0" step="500" value="6000" data-input="purchaseCost" inputmode="decimal">
+    </label>
+    <label>
+      <span>Selling costs</span>
+      <input type="number" min="0" step="500" value="5000" data-input="saleCost" inputmode="decimal">
+    </label>
+    <label>
+      <span>Holding cost per month</span>
+      <input type="number" min="0" step="100" value="2200" data-input="monthlyHoldingCost" inputmode="decimal">
+    </label>
+    <label>
+      <span>Holding months</span>
+      <input type="number" min="0" step="1" value="5" data-input="holdingMonths" inputmode="decimal">
+    </label>
+    <label>
+      <span>Agent commission</span>
+      <input type="number" min="0" max="12" step="0.25" value="6" data-input="commissionRate" inputmode="decimal">
+    </label>
+  </form>
+
+  <p class="calculator-error" data-error aria-live="polite"></p>
+
+  <div class="calculator-results" aria-live="polite">
+    <div>
+      <span>Maximum purchase price</span>
+      <strong data-output="maxPurchasePrice">$0</strong>
+    </div>
+    <div>
+      <span>Projected profit</span>
+      <strong data-output="projectedProfit">$0</strong>
+    </div>
+    <div>
+      <span>Profit margin</span>
+      <strong data-output="profitMargin">0%</strong>
+    </div>
+  </div>
+
+  <div class="calculator-breakdown">
+    <h3>Cost summary</h3>
+    <dl data-output="breakdown"></dl>
+  </div>
+
+  <div class="calculator-tool__cta">
+    <p>Save the deal assumptions with the repair scope, photos, and PDF report in Rehab Estimator.</p>
+    {% include download_cta.html %}
+  </div>
+</section>

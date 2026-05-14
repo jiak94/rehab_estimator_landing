@@ -1,0 +1,88 @@
+<section class="calculator-tool" data-calculator="rental-cashflow">
+  <div class="calculator-tool__header">
+    <h2>Rental Cashflow Calculator</h2>
+    <p>Estimate monthly cashflow, cash invested, and cash-on-cash return with rehab and operating assumptions.</p>
+  </div>
+
+  <form class="calculator-form">
+    <label>
+      <span>Purchase price</span>
+      <input type="number" min="1" step="5000" value="220000" data-input="purchasePrice" inputmode="decimal">
+    </label>
+    <label>
+      <span>Rehab cost</span>
+      <input type="number" min="0" step="1000" value="30000" data-input="rehabCost" inputmode="decimal">
+    </label>
+    <label>
+      <span>Closing cost</span>
+      <input type="number" min="0" step="500" value="6000" data-input="closingCost" inputmode="decimal">
+    </label>
+    <label>
+      <span>Down payment</span>
+      <input type="number" min="0" max="100" step="1" value="20" data-input="downPaymentRate" inputmode="decimal">
+    </label>
+    <label>
+      <span>Interest rate</span>
+      <input type="number" min="0" max="30" step="0.125" value="7" data-input="interestRate" inputmode="decimal">
+    </label>
+    <label>
+      <span>Loan years</span>
+      <input type="number" min="1" max="40" step="1" value="30" data-input="loanYears" inputmode="decimal">
+    </label>
+    <label>
+      <span>Monthly rent</span>
+      <input type="number" min="0" step="50" value="2400" data-input="rent" inputmode="decimal">
+    </label>
+    <label>
+      <span>Vacancy</span>
+      <input type="number" min="0" max="100" step="1" value="5" data-input="vacancyRate" inputmode="decimal">
+    </label>
+    <label>
+      <span>Management</span>
+      <input type="number" min="0" max="100" step="1" value="8" data-input="managementRate" inputmode="decimal">
+    </label>
+    <label>
+      <span>Maintenance</span>
+      <input type="number" min="0" max="100" step="1" value="5" data-input="maintenanceRate" inputmode="decimal">
+    </label>
+    <label>
+      <span>Annual taxes</span>
+      <input type="number" min="0" step="100" value="3600" data-input="annualTaxes" inputmode="decimal">
+    </label>
+    <label>
+      <span>Annual insurance</span>
+      <input type="number" min="0" step="100" value="1800" data-input="annualInsurance" inputmode="decimal">
+    </label>
+    <label>
+      <span>Misc monthly</span>
+      <input type="number" min="0" step="25" value="75" data-input="miscMonthly" inputmode="decimal">
+    </label>
+  </form>
+
+  <p class="calculator-error" data-error aria-live="polite"></p>
+
+  <div class="calculator-results" aria-live="polite">
+    <div>
+      <span>Monthly cashflow</span>
+      <strong data-output="monthlyCashflow">$0</strong>
+    </div>
+    <div>
+      <span>Cash invested</span>
+      <strong data-output="cashInvested">$0</strong>
+    </div>
+    <div>
+      <span>Cash-on-cash return</span>
+      <strong data-output="cashOnCashReturn">0%</strong>
+    </div>
+  </div>
+
+  <div class="calculator-breakdown">
+    <h3>Monthly expense summary</h3>
+    <dl data-output="breakdown"></dl>
+  </div>
+
+  <div class="calculator-tool__cta">
+    <p>Save the rental assumptions with repair photos, notes, and a PDF estimate in Rehab Estimator.</p>
+    {% include download_cta.html %}
+  </div>
+</section>

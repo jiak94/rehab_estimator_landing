@@ -5,6 +5,10 @@ seo_title: Rehab Cost Calculator for Property Repairs | Rehab Estimator
 meta_description: Build a rehab cost estimate by room, scope category, quantity, and cost range before turning it into a PDF report.
 include_in_header: false
 permalink: /rehab-cost-calculator/
+scripts:
+  - /assets/js/calculators/formulas.js
+  - /assets/js/calculators/ui.js
+  - /assets/js/calculators/rehab-cost.js
 faqs:
   - question: What should a rehab cost calculator include?
     answer: A rehab cost calculator should include interior, exterior, and project-level work, plus quantities, low-to-high cost ranges, photos, and notes that explain why each repair is in the estimate.
@@ -29,6 +33,8 @@ related_calculators:
   <h1>Build a room-by-room rehab cost estimate before you make the offer.</h1>
   <p>Use scope categories, quantities, photos, and low-to-high cost ranges to turn a walkthrough into a repair budget that can be reviewed and shared.</p>
 </div>
+
+{% include calculator_tools/rehab_cost.html %}
 
 ## What to capture during the walkthrough
 

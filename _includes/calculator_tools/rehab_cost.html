@@ -1,0 +1,52 @@
+<section class="calculator-tool" data-calculator="rehab-cost">
+  <div class="calculator-tool__header">
+    <h2>Rehab Cost Calculator</h2>
+    <p>Estimate a low and high repair range from square footage, rehab intensity, and contingency.</p>
+  </div>
+
+  <form class="calculator-form">
+    <label>
+      <span>Square footage</span>
+      <input type="number" min="1" step="50" value="1500" data-input="squareFeet" inputmode="decimal">
+    </label>
+    <label>
+      <span>Rehab intensity</span>
+      <select data-input="intensity">
+        <option value="light">Light cosmetic</option>
+        <option value="medium" selected>Medium rehab</option>
+        <option value="heavy">Heavy rehab</option>
+      </select>
+    </label>
+    <label>
+      <span>Contingency</span>
+      <input type="number" min="0" max="40" step="1" value="10" data-input="contingencyRate" inputmode="decimal">
+    </label>
+  </form>
+
+  <p class="calculator-error" data-error aria-live="polite"></p>
+
+  <div class="calculator-results" aria-live="polite">
+    <div>
+      <span>Low estimate</span>
+      <strong data-output="lowTotal">$0</strong>
+    </div>
+    <div>
+      <span>High estimate</span>
+      <strong data-output="highTotal">$0</strong>
+    </div>
+    <div>
+      <span>Contingency added</span>
+      <strong data-output="contingency">$0</strong>
+    </div>
+  </div>
+
+  <div class="calculator-breakdown">
+    <h3>Category ranges</h3>
+    <dl data-output="breakdown"></dl>
+  </div>
+
+  <div class="calculator-tool__cta">
+    <p>Save the scoped estimate, photos, notes, and PDF report in Rehab Estimator.</p>
+    {% include download_cta.html %}
+  </div>
+</section>

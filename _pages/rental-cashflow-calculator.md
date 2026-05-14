@@ -5,6 +5,10 @@ seo_title: Rental Cashflow Calculator with Rehab Costs | Rehab Estimator
 meta_description: Estimate rental cashflow with rent, debt service, vacancy, taxes, insurance, maintenance, management, and repair costs.
 include_in_header: false
 permalink: /rental-cashflow-calculator/
+scripts:
+  - /assets/js/calculators/formulas.js
+  - /assets/js/calculators/ui.js
+  - /assets/js/calculators/rental-cashflow.js
 faqs:
   - question: What expenses should a rental cashflow calculator include?
     answer: A rental cashflow calculator should include rent, mortgage payment, taxes, insurance, vacancy, maintenance, property management, utilities paid by the owner, capital reserves, and repair costs needed before rent starts.
@@ -29,6 +33,8 @@ related_calculators:
   <h1>See whether a rental still cashflows after the repair budget.</h1>
   <p>Model the income, operating expenses, debt, vacancy, reserves, and rehab assumptions that decide whether a property is actually rent-ready.</p>
 </div>
+
+{% include calculator_tools/rental_cashflow.html %}
 
 ## Inputs worth checking before buying
 

@@ -15,6 +15,11 @@
     </article>
   </main>
   {% include footer.html %}
+  {% if page.scripts %}
+    {% for script in page.scripts %}
+  <script src="{{ script | relative_url }}" defer></script>
+    {% endfor %}
+  {% endif %}
 </body>
 
 </html>
