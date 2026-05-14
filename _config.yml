@@ -38,6 +38,21 @@ sitemap_urls:
   - path: /bathroom-remodel-cost-estimator/
     lastmod: "2026-05-15"
     priority: 0.8
+  - path: /contractor-bid-comparison/
+    lastmod: "2026-05-15"
+    priority: 0.7
+  - path: /rehab-estimate-spreadsheet/
+    lastmod: "2026-05-15"
+    priority: 0.7
+  - path: /scope-of-work-template-construction/
+    lastmod: "2026-05-15"
+    priority: 0.7
+  - path: /guided-property-walkthrough/
+    lastmod: "2026-05-15"
+    priority: 0.7
+  - path: /ai-rehab-scope-estimator/
+    lastmod: "2026-05-15"
+    priority: 0.7
   - path: /changelog/
     lastmod: "2026-05-15"
     priority: 0.4
