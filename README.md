@@ -91,6 +91,31 @@ If you need to, you can create additional markdown based pages just by creating 
 **Please note:** The Privacy Policy and Changelog provided are written using dummy text, so please adapt each of them for your own app.
 You can also choose not to include these pages, by simple deleting the `privacypolicy.md` and `CHANGELOG.md` files.
 
+## SEO Crawl Validation
+
+Run this before deploying SEO URL or sitemap changes:
+
+```bash
+bundle exec jekyll build --quiet && ruby scripts/check_seo_crawl.rb --site-dir _site
+```
+
+Expected pass output:
+
+```text
+SEO crawl check passed for https://app.rehabestimator.app using local build _site
+- homepage: 200
+- robots.txt: 200, allows crawling, points to https://app.rehabestimator.app/sitemap.xml
+- sitemap.xml: 200 XML with 10 URLs and lastmod values
+- sitemap coverage: homepage and calculator pages present
+- pages: 10 URLs returned 200, canonical matched, no noindex
+```
+
+After deployment, the same crawl check can verify the live site:
+
+```bash
+ruby scripts/check_seo_crawl.rb --base-url https://app.rehabestimator.app
+```
+
 
 
 
