@@ -103,4 +103,24 @@
     }
   </script>
   {% endunless %}
+  {% if page.faqs %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {% for faq in page.faqs %}
+        {
+          "@type": "Question",
+          "name": {{ faq.question | jsonify }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ faq.answer | strip_html | jsonify }}
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+  </script>
+  {% endif %}
 </head>
