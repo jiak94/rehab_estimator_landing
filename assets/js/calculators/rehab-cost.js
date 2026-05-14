@@ -20,5 +20,8 @@
       label: row.label,
       value: `${ui.formatCurrency(row.low)} to ${ui.formatCurrency(row.high)}`
     })));
+    if (window.RehabAnalytics) {
+      window.RehabAnalytics.trackCalculatorResult("rehab_cost");
+    }
   });
 })();

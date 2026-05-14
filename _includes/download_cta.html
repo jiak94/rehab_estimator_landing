@@ -1,8 +1,8 @@
 <div class="download-actions">
-  <a class="store-badge" href="{{ site.appstore_link }}" aria-label="Download on the App Store">
+  <a class="store-badge" href="{{ site.appstore_link }}" aria-label="Download on the App Store" data-analytics-event="app_store_cta_click" data-store="app_store" data-cta-location="{{ include.location | default: 'download_cta' }}">
     <img src="{{ '/assets/appstore.png' | relative_url }}" alt="Download on the App Store" />
   </a>
-  <a class="store-badge" href="{{ site.playstore_link }}" aria-label="Get it on Google Play">
+  <a class="store-badge" href="{{ site.playstore_link }}" aria-label="Get it on Google Play" data-analytics-event="play_store_cta_click" data-store="play_store" data-cta-location="{{ include.location | default: 'download_cta' }}">
     <img src="{{ '/assets/playstore.png' | relative_url }}" alt="Get it on Google Play" />
   </a>
 </div>
