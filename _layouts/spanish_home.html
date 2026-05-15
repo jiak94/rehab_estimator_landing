@@ -8,49 +8,79 @@
   {% include header.html %}
 
   <main>
-    <section class="hero">
-      <div class="hero-media" aria-hidden="true">
-        <img src="{{ '/assets/product/report-builder-ipad.png' | relative_url }}" alt="" />
-      </div>
+    <section class="hero" aria-labelledby="home-title">
       <div class="hero-content">
-        <p class="eyebrow">App de estimados para remodelación, inversionistas y contratistas</p>
-        <h1>Rehab Estimator</h1>
+        <p class="section-label">App de estimados para iOS y Android</p>
+        <h1 id="home-title">Rehab Estimator</h1>
         <p class="hero-copy">
-          Crea estimados de reparaciones, agrega fotos, calcula los números del proyecto y comparte un reporte PDF desde el recorrido de la propiedad.
+          Del recorrido al reporte PDF. Captura el alcance, agrega fotos, calcula los números del proyecto y comparte un estimado claro antes de perder los detalles.
         </p>
-        {% include download_cta.html %}
-        <div class="hero-proof" aria-label="Puntos principales del producto">
-          <span>Rangos de costo</span>
-          <span>Notas con fotos</span>
-          <span>Reporte PDF</span>
-          <span>iOS y Android</span>
+        {% include download_cta.html location="hero" %}
+        <p class="hero-note">Hecho para presupuestos de reparación, revisión con contratistas y análisis de inversión.</p>
+      </div>
+
+      <div class="hero-product" aria-label="Pantallas de Rehab Estimator">
+        <figure class="product-screen product-screen-large">
+          <img src="{{ '/assets/product/report-builder-ipad.png' | relative_url }}" alt="Constructor de reportes de Rehab Estimator en iPad con partidas, fotos y totales" />
+          <figcaption>Arma el alcance mientras los detalles siguen frescos.</figcaption>
+        </figure>
+        <div class="product-screen-stack">
+          <figure class="product-screen">
+            <img src="{{ '/assets/product/report-overview-mobile.png' | relative_url }}" alt="Resumen móvil de Rehab Estimator con partidas y total estimado" />
+            <figcaption>Revisa totales desde la propiedad.</figcaption>
+          </figure>
+          <figure class="product-screen">
+            <img src="{{ '/assets/product/calculator-ipad.png' | relative_url }}" alt="Pantalla de calculadora de Rehab Estimator en iPad" />
+            <figcaption>Calcula el proyecto en el mismo flujo.</figcaption>
+          </figure>
         </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="section workflow-section">
+      <div class="section-heading">
+        <p class="section-label">Flujo de campo</p>
+        <h2>Del recorrido al reporte PDF</h2>
+        <p>Avanza con la misma secuencia que usas en una propiedad: captura el trabajo, calcula el alcance y envía un reporte revisable.</p>
+      </div>
+      <div class="workflow-grid">
+        <article class="workflow-step">
+          <span>01</span>
+          <h3>Recorre la propiedad</h3>
+          <p>Agrega partidas por cuarto, cantidades, notas y fotos sin esperar a volver al escritorio.</p>
+        </article>
+        <article class="workflow-step">
+          <span>02</span>
+          <h3>Calcula el alcance</h3>
+          <p>Usa rangos de costo, contingencia, fix and flip y flujo de renta para revisar el proyecto rápido.</p>
+        </article>
+        <article class="workflow-step">
+          <span>03</span>
+          <h3>Envía el reporte</h3>
+          <p>Comparte un PDF con contratistas, socios, clientes o tus propios registros sin depender de notas dispersas.</p>
+        </article>
       </div>
     </section>
 
     <section id="product" class="section product-section">
       <div class="section-heading">
-        <p class="eyebrow">Hecho para decisiones en campo</p>
-        <h2>Del recorrido a una cotización revisable en un solo flujo.</h2>
+        <p class="section-label">Producto</p>
+        <h2>Una app para el estimado, fotos, calculadoras y reporte.</h2>
       </div>
       <div class="feature-grid">
         <article class="feature-card">
-          <span class="feature-index">01</span>
           <h3>Estimados por alcance</h3>
           <p>Organiza reparaciones por interior, exterior y trabajo general con cantidades, rangos y notas.</p>
         </article>
         <article class="feature-card">
-          <span class="feature-index">02</span>
           <h3>Plantillas de trabajo</h3>
           <p>Empieza con partidas comunes y ajusta materiales, mano de obra y prioridades según la propiedad.</p>
         </article>
         <article class="feature-card">
-          <span class="feature-index">03</span>
           <h3>Reportes con fotos</h3>
           <p>Adjunta fotos del sitio y comparte un PDF claro con socios, contratistas o clientes.</p>
         </article>
         <article class="feature-card">
-          <span class="feature-index">04</span>
           <h3>Calculadoras del proyecto</h3>
           <p>Revisa costos de remodelación, fix and flip y flujo de renta desde la misma información.</p>
         </article>
@@ -59,10 +89,10 @@
 
     <section id="proof" class="section proof-section">
       <div class="proof-copy">
-        <p class="eyebrow">Prueba del producto</p>
-        <h2>Usa los mismos datos en reportes, calculadoras y biblioteca de trabajos.</h2>
+        <p class="section-label">Pantallas de la app</p>
+        <h2>Mantén alcance, cantidades, fotos y números en un solo lugar.</h2>
         <p>
-          Rehab Estimator mantiene partidas, cantidades, fotos y números del proyecto en una sola superficie para revisar el estimado antes de compartirlo.
+          La página muestra el producto real: constructor de reportes, resumen móvil y calculadoras, sin depender de maquetas abstractas.
         </p>
       </div>
       <div class="screenshot-grid" aria-label="Capturas de la app">
@@ -77,8 +107,8 @@
 
     <section id="sample-report" class="section report-section">
       <div class="section-heading">
-        <p class="eyebrow">Vista de reporte</p>
-        <h2>Convierte un estimado de trabajo en un PDF listo para revisar.</h2>
+        <p class="section-label">Salida del reporte</p>
+        <h2>Convierte un estimado de trabajo en un PDF revisable.</h2>
       </div>
       <div class="report-preview">
         <div class="report-sheet">
@@ -123,8 +153,8 @@
 
     <section class="section seo-section">
       <div class="section-heading">
-        <p class="eyebrow">Páginas de estimado</p>
-        <h2>Calculadoras para búsquedas comunes de remodelación.</h2>
+        <p class="section-label">Páginas de cálculo</p>
+        <h2>Entradas útiles para búsquedas específicas de remodelación.</h2>
       </div>
       <div class="seo-grid">
         <a href="{{ '/es/calculadora-costos-remodelacion/' | relative_url }}" target="_self">
@@ -144,10 +174,10 @@
 
     <section class="final-cta">
       <div>
-        <p class="eyebrow">Empieza desde la propiedad</p>
-        <h2>Arma el estimado donde aparecen las preguntas.</h2>
+        <p class="section-label">Empieza el próximo estimado</p>
+        <h2>Estima la siguiente propiedad con menos notas sueltas.</h2>
       </div>
-      {% include download_cta.html %}
+      {% include download_cta.html location="final" %}
     </section>
   </main>
 
