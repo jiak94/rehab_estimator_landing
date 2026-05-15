@@ -8,36 +8,69 @@
   {% include header.html %}
 
   <main>
-    <section class="hero">
-      <div class="hero-media" aria-hidden="true">
-        <img src="{{ '/assets/product/report-builder-ipad.png' | relative_url }}" alt="" />
-      </div>
+    <section class="hero" aria-labelledby="home-title">
       <div class="hero-content">
-        <p class="eyebrow">Rehab estimate app for investors, contractors, and homeowners</p>
-        <h1>Rehab Estimator</h1>
+        <p class="section-label">Rehab estimate app for iOS and Android</p>
+        <h1 id="home-title">Rehab Estimator</h1>
         <p class="hero-copy">
-          Create a rehab estimate, attach photos, calculate deal numbers, and share a PDF report from one jobsite workflow.
+          From walkthrough notes to PDF reports. Capture repair scope, attach photos, run deal calculators, and share one clear estimate before the details get lost.
         </p>
-        {% include download_cta.html %}
-        <div class="hero-proof" aria-label="Product highlights">
-          <span>Estimate ranges</span>
-          <span>Photo notes</span>
-          <span>PDF export</span>
-          <span>iOS and Android</span>
+        {% include download_cta.html location="hero" %}
+        <p class="hero-note">Built for rehab budgets, contractor review, and investor deal checks.</p>
+      </div>
+
+      <div class="hero-product" aria-label="Rehab Estimator product screens">
+        <figure class="product-screen product-screen-large">
+          <img src="{{ '/assets/product/report-builder-ipad.png' | relative_url }}" alt="Rehab Estimator iPad report builder with scope items, photos, and estimate totals" />
+          <figcaption>Build the repair scope while details are still fresh.</figcaption>
+        </figure>
+        <div class="product-screen-stack">
+          <figure class="product-screen">
+            <img src="{{ '/assets/product/report-overview-mobile.png' | relative_url }}" alt="Rehab Estimator mobile report overview with estimate total and repair tasks" />
+            <figcaption>Review report totals on site.</figcaption>
+          </figure>
+          <figure class="product-screen">
+            <img src="{{ '/assets/product/calculator-ipad.png' | relative_url }}" alt="Rehab Estimator iPad calculator screen for deal analysis" />
+            <figcaption>Run deal math from the same workflow.</figcaption>
+          </figure>
         </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="section workflow-section">
+      <div class="section-heading">
+        <p class="section-label">Field workflow</p>
+        <h2>From walkthrough notes to PDF reports</h2>
+        <p>Move through the same sequence you use at a property: capture the work, price the scope, then send a report people can review.</p>
+      </div>
+      <div class="workflow-grid">
+        <article class="workflow-step">
+          <span>01</span>
+          <h3>Walk the property</h3>
+          <p>Add room-by-room repair items, quantities, notes, and photos without waiting until you are back at a desk.</p>
+        </article>
+        <article class="workflow-step">
+          <span>02</span>
+          <h3>Price the scope</h3>
+          <p>Use cost ranges, contingency, fix-and-flip math, and rental cashflow checks to understand the deal quickly.</p>
+        </article>
+        <article class="workflow-step">
+          <span>03</span>
+          <h3>Send the report</h3>
+          <p>Share a PDF with contractors, partners, clients, or your own records so the decision does not depend on scattered notes.</p>
+        </article>
       </div>
     </section>
 
     <section id="product" class="section product-section">
       <div class="section-heading">
-        <p class="eyebrow">Built for field decisions</p>
-        <h2>One app from walkthrough notes to shareable rehab numbers.</h2>
+        <p class="section-label">Product surface</p>
+        <h2>One app for the estimate, photos, calculators, and report.</h2>
       </div>
       <div class="feature-grid">
         {% for feature in site.features %}
           {% if feature.title %}
           <article class="feature-card">
-            <span class="feature-index">0{{ forloop.index }}</span>
             <h3>{{ feature.title }}</h3>
             <p>{{ feature.description }}</p>
           </article>
@@ -48,10 +81,10 @@
 
     <section id="proof" class="section proof-section">
       <div class="proof-copy">
-        <p class="eyebrow">Real app proof</p>
-        <h2>Use the same data in reports, calculators, and the job library.</h2>
+        <p class="section-label">Screens from the app</p>
+        <h2>Keep scope, quantities, photos, and deal math in one place.</h2>
         <p>
-          Rehab Estimator keeps scope items, quantity edits, photo documentation, and deal math in the same product surface, so the estimate is easier to review before sharing.
+          The landing page now leads with the actual product: report builder, mobile report overview, and calculator screens instead of abstract mockups.
         </p>
       </div>
       <div class="screenshot-grid" aria-label="App screenshots">
@@ -66,8 +99,8 @@
 
     <section id="sample-report" class="section report-section">
       <div class="section-heading">
-        <p class="eyebrow">Report preview</p>
-        <h2>Turn a working estimate into a client-ready PDF.</h2>
+        <p class="section-label">Report output</p>
+        <h2>Turn a working estimate into a PDF people can act on.</h2>
       </div>
       <div class="report-preview">
         <div class="report-sheet">
@@ -112,8 +145,8 @@
 
     <section class="section seo-section">
       <div class="section-heading">
-        <p class="eyebrow">Estimate pages</p>
-        <h2>Calculator guides for common rehab searches.</h2>
+        <p class="section-label">Calculator pages</p>
+        <h2>Useful entry points for specific rehab searches.</h2>
       </div>
       <div class="seo-grid">
         <a href="{{ '/rehab-cost-calculator/' | relative_url }}" target="_self">
@@ -141,10 +174,10 @@
 
     <section class="final-cta">
       <div>
-        <p class="eyebrow">Start from the jobsite</p>
-        <h2>Build the estimate where the questions happen.</h2>
+        <p class="section-label">Start the next estimate</p>
+        <h2>Estimate the next property with fewer loose notes.</h2>
       </div>
-      {% include download_cta.html %}
+      {% include download_cta.html location="final" %}
     </section>
   </main>
 
