@@ -1,0 +1,75 @@
+---
+layout: page
+title: Page not found
+seo_title: Rehab Estimator import link
+meta_description: Open a shared Rehab Estimator import link in the app or download Rehab Estimator from the App Store.
+robots: noindex, follow
+permalink: /404.html
+---
+
+<section id="generic-not-found" class="not-found-section">
+  <p class="section-label">404</p>
+  <h1>Page not found</h1>
+  <p>The page you requested does not exist. Return to the Rehab Estimator homepage to continue.</p>
+  <div class="fallback-actions">
+    <a class="fallback-button fallback-button-primary" href="{{ '/' | relative_url }}">Go to homepage</a>
+  </div>
+</section>
+
+<section
+  id="import-link-fallback"
+  class="not-found-section import-link-fallback"
+  data-import-path-prefix="/import/"
+  hidden
+>
+  <p class="section-label">Shared estimate</p>
+  <h1>Open this import link in Rehab Estimator</h1>
+  <p>This QR code opens a calculator or report shared from Rehab Estimator.</p>
+  <div class="fallback-actions">
+    <a
+      id="import-open-link"
+      class="fallback-button fallback-button-primary"
+      href="{{ '/' | relative_url }}"
+      data-analytics-event="import_link_open_app"
+      data-cta-location="import_fallback"
+    >Open in Rehab Estimator</a>
+    <a
+      class="fallback-button"
+      href="{{ site.appstore_link }}"
+      data-analytics-event="app_store_cta_click"
+      data-store="app_store"
+      data-cta-location="import_fallback"
+    >Download on the App Store</a>
+  </div>
+  <p class="fallback-note">Install Rehab Estimator, then reopen this link or scan the QR again.</p>
+</section>
+
+<script>
+  (function () {
+    var importPanel = document.getElementById('import-link-fallback');
+    var genericPanel = document.getElementById('generic-not-found');
+    if (!importPanel || !genericPanel) {
+      return;
+    }
+
+    var prefix = importPanel.getAttribute('data-import-path-prefix');
+    var path = window.location.pathname;
+    if (!prefix || !path.startsWith(prefix) || path.length <= prefix.length) {
+      return;
+    }
+
+    var currentUrl = window.location.href;
+    var openLink = document.getElementById('import-open-link');
+    var smartBanner = document.querySelector('meta[name="apple-itunes-app"]');
+
+    genericPanel.hidden = true;
+    importPanel.hidden = false;
+
+    if (openLink) {
+      openLink.href = currentUrl;
+    }
+    if (smartBanner) {
+      smartBanner.setAttribute('content', "app-id={{ site.ios_app_id }}, app-argument=" + currentUrl);
+    }
+  })();
+</script>
