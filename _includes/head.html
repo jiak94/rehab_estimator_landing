@@ -3,6 +3,7 @@
   {% assign resolved_description = page.meta_description | default: site.app_description %}
   {% assign resolved_url = page.url | absolute_url %}
   {% assign resolved_image = '/assets/product/report-builder-ipad.png' | absolute_url %}
+  {% assign robots_content = page.robots | default: "index, follow, max-image-preview:large" %}
   {% assign localized_en = "" %}
   {% assign localized_es = "" %}
   {% for localized_pair in site.localized_page_pairs %}
@@ -21,7 +22,7 @@
 
   <title>{{ resolved_title }}</title>
   <meta name="description" content="{{ resolved_description }}" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="robots" content="{{ robots_content }}" />
   <link rel="canonical" href="{{ resolved_url }}" />
   {% if localized_en != "" and localized_es != "" %}
   <link rel="alternate" hreflang="en" href="{{ localized_en | absolute_url }}" />

@@ -730,6 +730,73 @@ main {
   margin-top: 22px;
 }
 
+.not-found-section {
+  display: grid;
+  gap: 18px;
+}
+
+.not-found-section[hidden] {
+  display: none;
+}
+
+.not-found-section h1 {
+  max-width: 680px;
+  color: $primary-text-color;
+  font-size: 4.4rem;
+  line-height: 1.05;
+}
+
+.not-found-section p:not(.section-label) {
+  max-width: 620px;
+  color: $muted-text-color;
+  font-size: 1.9rem;
+  line-height: 1.45;
+}
+
+.fallback-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.fallback-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid $soft-border-color;
+  border-radius: 8px;
+  color: $primary-text-color;
+  font-weight: 800;
+  text-decoration: none;
+  background: $paper-color;
+}
+
+.fallback-button:hover,
+.fallback-button:focus-visible {
+  border-color: $accent-color;
+  color: $accent-color;
+}
+
+.fallback-button-primary {
+  border-color: $accent-color;
+  color: #ffffff;
+  background: $accent-color;
+}
+
+.fallback-button-primary:hover,
+.fallback-button-primary:focus-visible {
+  color: #ffffff;
+  background: darken($accent-color, 6%);
+}
+
+.fallback-note {
+  padding-top: 8px;
+  font-weight: 700;
+}
+
 .related-calculators,
 .faq-section {
   margin-top: 34px;
