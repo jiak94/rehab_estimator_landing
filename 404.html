@@ -2,7 +2,7 @@
 layout: page
 title: Page not found
 seo_title: Rehab Estimator import link
-meta_description: Open a shared Rehab Estimator import link in the app or download Rehab Estimator from the App Store.
+meta_description: Open a shared Rehab Estimator import link in the app or download Rehab Estimator from the App Store or Google Play.
 robots: noindex, follow
 permalink: /404.html
 ---
@@ -34,12 +34,21 @@ permalink: /404.html
       data-cta-location="import_fallback"
     >Open in Rehab Estimator</a>
     <a
+      id="import-app-store-link"
       class="fallback-button"
       href="{{ site.appstore_link }}"
       data-analytics-event="app_store_cta_click"
       data-store="app_store"
       data-cta-location="import_fallback"
     >Download on the App Store</a>
+    <a
+      id="import-play-store-link"
+      class="fallback-button"
+      href="{{ site.playstore_link }}"
+      data-analytics-event="play_store_cta_click"
+      data-store="play_store"
+      data-cta-location="import_fallback"
+    >Get it on Google Play</a>
   </div>
   <p class="fallback-note">Install Rehab Estimator, then reopen this link or scan the QR again.</p>
 </section>
@@ -60,7 +69,12 @@ permalink: /404.html
 
     var currentUrl = window.location.href;
     var openLink = document.getElementById('import-open-link');
+    var appStoreLink = document.getElementById('import-app-store-link');
+    var playStoreLink = document.getElementById('import-play-store-link');
     var smartBanner = document.querySelector('meta[name="apple-itunes-app"]');
+    var userAgent = window.navigator.userAgent || '';
+    var isAndroid = /Android/i.test(userAgent);
+    var isAppleMobile = /iPhone|iPad|iPod/i.test(userAgent);
 
     genericPanel.hidden = true;
     importPanel.hidden = false;
@@ -70,6 +84,10 @@ permalink: /404.html
     }
     if (smartBanner) {
       smartBanner.setAttribute('content', "app-id={{ site.ios_app_id }}, app-argument=" + currentUrl);
+    }
+    if (appStoreLink && playStoreLink) {
+      appStoreLink.hidden = isAndroid;
+      playStoreLink.hidden = isAppleMobile;
     }
   })();
 </script>
