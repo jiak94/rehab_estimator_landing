@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.estimator.rehab",
+      "sha256_cert_fingerprints": [
+        "90:F9:61:C1:C8:CD:C8:16:81:01:72:A9:38:C5:0B:F5:0F:12:F6:0C:91:A6:D7:C2:48:A8:CB:F9:51:D0:E3:AF"
+      ]
+    }
+  }
+]
